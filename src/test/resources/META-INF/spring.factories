@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = br.com.stockxpert.\
+    config.SqlTestContainersSpringContextCustomizerFactory
