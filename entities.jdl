@@ -34,6 +34,7 @@ entity Pedido {
 relationship ManyToOne {
   Funcionario{gerente} to Gerente
   Pedido{funcionario} to Funcionario
+  Pedido{produto} to Produto
 }
 
 relationship OneToMany {
@@ -41,9 +42,6 @@ relationship OneToMany {
   Estoque{pedido} to Pedido
 } 
 
-relationship ManyToMany {
-  Pedido{produtos} to Produto{pedidos}
-}
 
 
 application {
