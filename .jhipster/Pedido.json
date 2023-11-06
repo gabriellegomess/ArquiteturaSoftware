@@ -1,0 +1,33 @@
+{
+  "applications": ["StockXpert"],
+  "changelogDate": "20231106215245",
+  "entityTableName": "pedido",
+  "fields": [
+    {
+      "fieldName": "dataPedido",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quantidade",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Pedido",
+  "relationships": [
+    {
+      "otherEntityName": "cliente",
+      "relationshipName": "cliente",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "produto",
+      "relationshipName": "produto",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

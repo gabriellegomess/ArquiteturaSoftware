@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="EstoqueHeading">
+    <span jhiTranslate="stockXpertApp.estoque.home.title">Estoques</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="stockXpertApp.estoque.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-estoque"
+        [routerLink]="['/estoque/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="stockXpertApp.estoque.home.createLabel">Criar novo Estoque</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="estoques?.length === 0">
+    <span jhiTranslate="stockXpertApp.estoque.home.notFound">Nenhum Estoque encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="estoques && estoques.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="qtde">
+            <div class="d-flex">
+              <span jhiTranslate="stockXpertApp.estoque.qtde">Qtde</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gerente.id">
+            <div class="d-flex">
+              <span jhiTranslate="stockXpertApp.estoque.gerente">Gerente</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estoque of estoques; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/estoque', estoque.id, 'view']">{{ estoque.id }}</a>
+          </td>
+          <td>{{ estoque.qtde }}</td>
+          <td>
+            <div *ngIf="estoque.gerente">
+              <a [routerLink]="['/gerente', estoque.gerente.id, 'view']">{{ estoque.gerente.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/estoque', estoque.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/estoque', estoque.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(estoque)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

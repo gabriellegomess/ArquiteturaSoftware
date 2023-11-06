@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-produto-heading" data-cy="ProdutoCreateUpdateHeading" jhiTranslate="stockXpertApp.produto.home.createOrEditLabel">
+        Criar ou editar Produto
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.produto.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+          <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.produto.preco" for="field_preco">Preco</label>
+          <input type="number" class="form-control" name="preco" id="field_preco" data-cy="preco" formControlName="preco" />
+          <div *ngIf="editForm.get('preco')!.invalid && (editForm.get('preco')!.dirty || editForm.get('preco')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('preco')?.errors?.required" jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+            <small class="form-text text-danger" [hidden]="!editForm.get('preco')?.errors?.number" jhiTranslate="entity.validation.number"
+              >Este campo é do tipo numérico.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.produto.descricao" for="field_descricao">Descricao</label>
+          <input type="text" class="form-control" name="descricao" id="field_descricao" data-cy="descricao" formControlName="descricao" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.produto.codBarra" for="field_codBarra">Cod Barra</label>
+          <input type="number" class="form-control" name="codBarra" id="field_codBarra" data-cy="codBarra" formControlName="codBarra" />
+          <div *ngIf="editForm.get('codBarra')!.invalid && (editForm.get('codBarra')!.dirty || editForm.get('codBarra')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('codBarra')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('codBarra')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+              >Este campo é do tipo numérico.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.produto.estoque" for="field_estoque">Estoque</label>
+          <select
+            class="form-control"
+            id="field_estoque"
+            data-cy="estoque"
+            name="estoque"
+            formControlName="estoque"
+            [compareWith]="compareEstoque"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="estoqueOption" *ngFor="let estoqueOption of estoquesSharedCollection">{{ estoqueOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

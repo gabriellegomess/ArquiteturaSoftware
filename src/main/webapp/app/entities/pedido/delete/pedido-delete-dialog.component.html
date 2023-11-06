@@ -1,0 +1,24 @@
+<form *ngIf="pedido" name="deleteForm" (ngSubmit)="confirmDelete(pedido.id!)">
+  <div class="modal-header">
+    <h4 class="modal-title" data-cy="pedidoDeleteDialogHeading" jhiTranslate="entity.delete.title">Confirme a exclusão</h4>
+
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <p id="jhi-delete-pedido-heading" jhiTranslate="stockXpertApp.pedido.delete.question" [translateValues]="{ id: pedido.id }">
+      Tem certeza de que deseja excluir Pedido {{ pedido.id }}?
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+    </button>
+
+    <button id="jhi-confirm-delete-pedido" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+      <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Excluir</span>
+    </button>
+  </div>
+</form>

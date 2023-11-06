@@ -1,0 +1,28 @@
+{
+  "stockXpertApp": {
+    "funcionario": {
+      "home": {
+        "title": "Funcionarios",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Funcionario",
+        "createOrEditLabel": "Créer ou éditer un Funcionario",
+        "notFound": "Aucun Funcionario trouvé"
+      },
+      "created": "Un nouveau Funcionario a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Funcionario avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Funcionario avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Funcionario {{ id }} ?"
+      },
+      "detail": {
+        "title": "Funcionario"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "salario": "Salario",
+      "dataNasc": "Data Nasc",
+      "gerente": "Gerente"
+    }
+  }
+}

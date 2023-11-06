@@ -1,0 +1,111 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-funcionario-heading"
+        data-cy="FuncionarioCreateUpdateHeading"
+        jhiTranslate="stockXpertApp.funcionario.home.createOrEditLabel"
+      >
+        Criar ou editar Funcionario
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.funcionario.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+          <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.funcionario.cpf" for="field_cpf">Cpf</label>
+          <input type="text" class="form-control" name="cpf" id="field_cpf" data-cy="cpf" formControlName="cpf" />
+          <div *ngIf="editForm.get('cpf')!.invalid && (editForm.get('cpf')!.dirty || editForm.get('cpf')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cpf')?.errors?.required" jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.funcionario.salario" for="field_salario">Salario</label>
+          <input type="number" class="form-control" name="salario" id="field_salario" data-cy="salario" formControlName="salario" />
+          <div *ngIf="editForm.get('salario')!.invalid && (editForm.get('salario')!.dirty || editForm.get('salario')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('salario')?.errors?.required" jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+            <small class="form-text text-danger" [hidden]="!editForm.get('salario')?.errors?.number" jhiTranslate="entity.validation.number"
+              >Este campo é do tipo numérico.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.funcionario.dataNasc" for="field_dataNasc">Data Nasc</label>
+          <div class="input-group">
+            <input
+              id="field_dataNasc"
+              data-cy="dataNasc"
+              type="text"
+              class="form-control"
+              name="dataNasc"
+              ngbDatepicker
+              #dataNascDp="ngbDatepicker"
+              formControlName="dataNasc"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataNascDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('dataNasc')!.invalid && (editForm.get('dataNasc')!.dirty || editForm.get('dataNasc')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dataNasc')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.funcionario.gerente" for="field_gerente">Gerente</label>
+          <select
+            class="form-control"
+            id="field_gerente"
+            data-cy="gerente"
+            name="gerente"
+            formControlName="gerente"
+            [compareWith]="compareGerente"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="gerenteOption" *ngFor="let gerenteOption of gerentesSharedCollection">{{ gerenteOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

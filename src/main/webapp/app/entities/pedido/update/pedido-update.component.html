@@ -1,0 +1,119 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-pedido-heading" data-cy="PedidoCreateUpdateHeading" jhiTranslate="stockXpertApp.pedido.home.createOrEditLabel">
+        Criar ou editar Pedido
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.pedido.dataPedido" for="field_dataPedido">Data Pedido</label>
+          <div class="d-flex">
+            <input
+              id="field_dataPedido"
+              data-cy="dataPedido"
+              type="datetime-local"
+              class="form-control"
+              name="dataPedido"
+              formControlName="dataPedido"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('dataPedido')!.invalid && (editForm.get('dataPedido')!.dirty || editForm.get('dataPedido')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dataPedido')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('dataPedido')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+              >Este campo é do tipo data/hora.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.pedido.quantidade" for="field_quantidade">Quantidade</label>
+          <input
+            type="number"
+            class="form-control"
+            name="quantidade"
+            id="field_quantidade"
+            data-cy="quantidade"
+            formControlName="quantidade"
+          />
+          <div *ngIf="editForm.get('quantidade')!.invalid && (editForm.get('quantidade')!.dirty || editForm.get('quantidade')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('quantidade')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >O campo é obrigatório.</small
+            >
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('quantidade')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+              >Este campo é do tipo numérico.</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="stockXpertApp.pedido.cliente" for="field_cliente">Cliente</label>
+          <select
+            class="form-control"
+            id="field_cliente"
+            data-cy="cliente"
+            name="cliente"
+            formControlName="cliente"
+            [compareWith]="compareCliente"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="clienteOption" *ngFor="let clienteOption of clientesSharedCollection">{{ clienteOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="stockXpertApp.pedido.produto" for="field_produtos">Produto</label>
+          <select
+            class="form-control"
+            id="field_produtos"
+            data-cy="produto"
+            multiple
+            name="produtos"
+            formControlName="produtos"
+            [compareWith]="compareProduto"
+          >
+            <option [ngValue]="produtoOption" *ngFor="let produtoOption of produtosSharedCollection">{{ produtoOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

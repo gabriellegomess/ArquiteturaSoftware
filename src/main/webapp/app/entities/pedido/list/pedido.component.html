@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="PedidoHeading">
+    <span jhiTranslate="stockXpertApp.pedido.home.title">Pedidos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="stockXpertApp.pedido.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-pedido"
+        [routerLink]="['/pedido/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="stockXpertApp.pedido.home.createLabel">Criar novo Pedido</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="pedidos?.length === 0">
+    <span jhiTranslate="stockXpertApp.pedido.home.notFound">Nenhum Pedido encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="pedidos && pedidos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dataPedido">
+            <div class="d-flex">
+              <span jhiTranslate="stockXpertApp.pedido.dataPedido">Data Pedido</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="quantidade">
+            <div class="d-flex">
+              <span jhiTranslate="stockXpertApp.pedido.quantidade">Quantidade</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cliente.id">
+            <div class="d-flex">
+              <span jhiTranslate="stockXpertApp.pedido.cliente">Cliente</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="produto.id">
+            <div class="d-flex">
+              <span jhiTranslate="stockXpertApp.pedido.produto">Produto</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedidos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/pedido', pedido.id, 'view']">{{ pedido.id }}</a>
+          </td>
+          <td>{{ pedido.dataPedido | formatMediumDatetime }}</td>
+          <td>{{ pedido.quantidade }}</td>
+          <td>
+            <div *ngIf="pedido.cliente">
+              <a [routerLink]="['/cliente', pedido.cliente.id, 'view']">{{ pedido.cliente.id }}</a>
+            </div>
+          </td>
+          <td>
+            <span *ngFor="let produto of pedido.produtos; let last = last">
+              <a class="form-control-static" [routerLink]="['/produto', produto.id, 'view']">{{ produto.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/pedido', pedido.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/pedido', pedido.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(pedido)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "applications": ["StockXpert"],
+  "changelogDate": "20231106215246",
+  "entityTableName": "cliente",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Cliente",
+  "relationships": [],
+  "searchEngine": "no"
+}

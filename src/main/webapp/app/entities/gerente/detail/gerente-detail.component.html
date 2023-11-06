@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="gerente">
+      <h2 data-cy="gerenteDetailsHeading"><span jhiTranslate="stockXpertApp.gerente.detail.title">Gerente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ gerente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.gerente.nome">Nome</span></dt>
+        <dd>
+          <span>{{ gerente.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.gerente.cpf">Cpf</span></dt>
+        <dd>
+          <span>{{ gerente.cpf }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.gerente.salario">Salario</span></dt>
+        <dd>
+          <span>{{ gerente.salario }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.gerente.dataNasc">Data Nasc</span></dt>
+        <dd>
+          <span>{{ gerente.dataNasc | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/gerente', gerente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "applications": ["StockXpert"],
+  "changelogDate": "20231106215243",
+  "entityTableName": "produto",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "preco",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codBarra",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Produto",
+  "relationships": [],
+  "searchEngine": "no"
+}

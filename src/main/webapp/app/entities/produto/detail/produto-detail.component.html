@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="produto">
+      <h2 data-cy="produtoDetailsHeading"><span jhiTranslate="stockXpertApp.produto.detail.title">Produto</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ produto.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.produto.nome">Nome</span></dt>
+        <dd>
+          <span>{{ produto.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.produto.preco">Preco</span></dt>
+        <dd>
+          <span>{{ produto.preco }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.produto.descricao">Descricao</span></dt>
+        <dd>
+          <span>{{ produto.descricao }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.produto.codBarra">Cod Barra</span></dt>
+        <dd>
+          <span>{{ produto.codBarra }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.produto.estoque">Estoque</span></dt>
+        <dd>
+          <div *ngIf="produto.estoque">
+            <a [routerLink]="['/estoque', produto.estoque.id, 'view']">{{ produto.estoque.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/produto', produto.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

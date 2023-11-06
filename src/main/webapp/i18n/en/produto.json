@@ -1,0 +1,29 @@
+{
+  "stockXpertApp": {
+    "produto": {
+      "home": {
+        "title": "Produtos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Produto",
+        "createOrEditLabel": "Create or edit a Produto",
+        "notFound": "No Produtos found"
+      },
+      "created": "A new Produto is created with identifier {{ param }}",
+      "updated": "A Produto is updated with identifier {{ param }}",
+      "deleted": "A Produto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Produto {{ id }}?"
+      },
+      "detail": {
+        "title": "Produto"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "preco": "Preco",
+      "descricao": "Descricao",
+      "codBarra": "Cod Barra",
+      "estoque": "Estoque",
+      "pedido": "Pedido"
+    }
+  }
+}

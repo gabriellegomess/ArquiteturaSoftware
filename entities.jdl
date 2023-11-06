@@ -1,0 +1,63 @@
+// Definindo as entidades
+entity Gerente {
+  nome String required
+  cpf String required
+  salario BigDecimal required
+  dataNasc LocalDate required
+}
+
+entity Funcionario {
+  nome String required
+  cpf String required
+  salario BigDecimal required
+  dataNasc LocalDate required
+}
+
+entity Estoque {
+  qtde Integer required
+}
+
+entity Produto {
+  nome String required
+  preco BigDecimal required
+  descricao String 
+  codBarra Double required
+}
+
+entity Pedido {
+  dataPedido Instant required
+  quantidade Integer required
+}
+
+entity Cliente {
+  nome String required
+  cpf String required
+}
+
+// Definindo as relações
+relationship ManyToOne {
+  Funcionario{gerente} to Gerente
+  Pedido{cliente} to Cliente
+}
+
+relationship OneToMany {
+  Gerente{estoque} to Estoque
+}
+
+relationship ManyToMany {
+  Pedido{produto} to Produto
+}
+
+relationship OneToMany {
+  Estoque{produto} to Produto
+}
+
+application {
+  config {
+    baseName StockXpert
+    packageName stockxpert
+    applicationType monolith
+  }
+    
+  entities Gerente, Funcionario, Produto, Estoque, Pedido, Cliente
+}

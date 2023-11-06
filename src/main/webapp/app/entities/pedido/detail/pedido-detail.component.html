@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pedido">
+      <h2 data-cy="pedidoDetailsHeading"><span jhiTranslate="stockXpertApp.pedido.detail.title">Pedido</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ pedido.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.pedido.dataPedido">Data Pedido</span></dt>
+        <dd>
+          <span>{{ pedido.dataPedido | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.pedido.quantidade">Quantidade</span></dt>
+        <dd>
+          <span>{{ pedido.quantidade }}</span>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.pedido.cliente">Cliente</span></dt>
+        <dd>
+          <div *ngIf="pedido.cliente">
+            <a [routerLink]="['/cliente', pedido.cliente.id, 'view']">{{ pedido.cliente.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="stockXpertApp.pedido.produto">Produto</span></dt>
+        <dd>
+          <span *ngFor="let produto of pedido.produtos; let last = last">
+            <a [routerLink]="['/produto', produto.id, 'view']">{{ produto.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pedido', pedido.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "applications": ["StockXpert"],
+  "changelogDate": "20231106215244",
+  "entityTableName": "estoque",
+  "fields": [
+    {
+      "fieldName": "qtde",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Estoque",
+  "relationships": [
+    {
+      "otherEntityName": "produto",
+      "relationshipName": "produto",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
