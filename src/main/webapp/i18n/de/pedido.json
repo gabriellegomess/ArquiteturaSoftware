@@ -1,0 +1,27 @@
+{
+  "stockXpertApp": {
+    "pedido": {
+      "home": {
+        "title": "Pedidos",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Pedido erstellen",
+        "createOrEditLabel": "Pedido erstellen oder bearbeiten",
+        "notFound": "Keine Pedidos gefunden"
+      },
+      "created": "Pedido erstellt mit ID {{ param }}",
+      "updated": "Pedido aktualisiert mit ID {{ param }}",
+      "deleted": "Pedido gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Pedido {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Pedido"
+      },
+      "id": "ID",
+      "dataPedido": "Data Pedido",
+      "quantidade": "Quantidade",
+      "cliente": "Cliente",
+      "produto": "Produto"
+    }
+  }
+}

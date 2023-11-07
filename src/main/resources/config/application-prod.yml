@@ -34,8 +34,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/StockXpert
-    username: StockXpert
-    password:
+    username: postgres
+    password: password
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -99,7 +99,7 @@ jhipster:
         # - In the Consul configserver
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: NzkwZjRiOGI3MDYyNWZjY2ZlNDg2NjBhMzNkZDY3MmM2OWNjZWY2Zjk5ZTY4ZDYzMDdmZDVjOGU2NTZjZWVmNzJhYzcwYTc0MDc3MWQwOTVhNTc4YjdlYTc2ODMxNjBjYmI1ZDA2ZWQ5YWMyYjVhZTg2YWUwMjk2MjlkMTdlNTU=
+        base64-secret: NjgwYmY2ZWQ2NGE2NGU3MGNkNDRkNjM1NTgwYmE5YjlhYjM1NWIyYWJiMjUwNzM5ZjQyN2FlN2QyNjM4MWJmMzc2ODI1M2ZlMDVkM2QyNzY0ZjEzMGE3ZTViMGViNTg0NGY2ZTkxNDVjYzc0MDJiMTVlMGFhODNmMmY5YThjOWU=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

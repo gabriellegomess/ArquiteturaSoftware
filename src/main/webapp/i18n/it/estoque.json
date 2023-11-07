@@ -1,0 +1,26 @@
+{
+  "stockXpertApp": {
+    "estoque": {
+      "home": {
+        "title": "Estoques",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Estoque",
+        "createOrEditLabel": "Genera o modifica un Estoque",
+        "notFound": "No Estoques found"
+      },
+      "created": "&Egrave; stato generato un nuovo Estoque con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Estoque identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Estoque con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Estoque {{ id }}?"
+      },
+      "detail": {
+        "title": "Estoque"
+      },
+      "id": "ID",
+      "qtde": "Qtde",
+      "produto": "Produto",
+      "gerente": "Gerente"
+    }
+  }
+}

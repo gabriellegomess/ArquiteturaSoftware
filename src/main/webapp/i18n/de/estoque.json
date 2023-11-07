@@ -1,0 +1,26 @@
+{
+  "stockXpertApp": {
+    "estoque": {
+      "home": {
+        "title": "Estoques",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Estoque erstellen",
+        "createOrEditLabel": "Estoque erstellen oder bearbeiten",
+        "notFound": "Keine Estoques gefunden"
+      },
+      "created": "Estoque erstellt mit ID {{ param }}",
+      "updated": "Estoque aktualisiert mit ID {{ param }}",
+      "deleted": "Estoque gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Estoque {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Estoque"
+      },
+      "id": "ID",
+      "qtde": "Qtde",
+      "produto": "Produto",
+      "gerente": "Gerente"
+    }
+  }
+}

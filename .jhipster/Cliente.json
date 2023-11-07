@@ -1,6 +1,6 @@
 {
   "applications": ["StockXpert"],
-  "changelogDate": "20231106215246",
+  "changelogDate": "20231107001045",
   "entityTableName": "cliente",
   "fields": [
     {

@@ -1,0 +1,28 @@
+{
+  "stockXpertApp": {
+    "funcionario": {
+      "home": {
+        "title": "Funcionarios",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Funcionario",
+        "createOrEditLabel": "Crear o editar Funcionario",
+        "notFound": "Ningún Funcionarios encontrado"
+      },
+      "created": "Un nuevo Funcionario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Funcionario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Funcionario ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Funcionario {{ id }}?"
+      },
+      "detail": {
+        "title": "Funcionario"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "salario": "Salario",
+      "dataNasc": "Data Nasc",
+      "gerente": "Gerente"
+    }
+  }
+}

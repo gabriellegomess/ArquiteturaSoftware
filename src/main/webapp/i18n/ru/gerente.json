@@ -1,0 +1,28 @@
+{
+  "stockXpertApp": {
+    "gerente": {
+      "home": {
+        "title": "Gerentes",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Gerente",
+        "createOrEditLabel": "Создать или отредактировать Gerente",
+        "notFound": "Gerentes не найдено"
+      },
+      "created": "Новый Gerente создан с идентификатором {{ param }}",
+      "updated": "Gerente обновлен с идентификатором {{ param }}",
+      "deleted": "Gerente удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Gerente {{ id }}?"
+      },
+      "detail": {
+        "title": "Gerente"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "salario": "Salario",
+      "dataNasc": "Data Nasc",
+      "estoque": "Estoque"
+    }
+  }
+}

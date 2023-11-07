@@ -1,0 +1,28 @@
+{
+  "stockXpertApp": {
+    "gerente": {
+      "home": {
+        "title": "Gerentes",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Gerente erstellen",
+        "createOrEditLabel": "Gerente erstellen oder bearbeiten",
+        "notFound": "Keine Gerentes gefunden"
+      },
+      "created": "Gerente erstellt mit ID {{ param }}",
+      "updated": "Gerente aktualisiert mit ID {{ param }}",
+      "deleted": "Gerente gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Gerente {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Gerente"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "salario": "Salario",
+      "dataNasc": "Data Nasc",
+      "estoque": "Estoque"
+    }
+  }
+}

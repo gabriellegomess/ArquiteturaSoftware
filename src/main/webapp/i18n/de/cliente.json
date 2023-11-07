@@ -1,0 +1,25 @@
+{
+  "stockXpertApp": {
+    "cliente": {
+      "home": {
+        "title": "Clientes",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Cliente erstellen",
+        "createOrEditLabel": "Cliente erstellen oder bearbeiten",
+        "notFound": "Keine Clientes gefunden"
+      },
+      "created": "Cliente erstellt mit ID {{ param }}",
+      "updated": "Cliente aktualisiert mit ID {{ param }}",
+      "deleted": "Cliente gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Cliente {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Cliente"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "stockXpertApp": {
+    "cliente": {
+      "home": {
+        "title": "Clientes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Cliente",
+        "createOrEditLabel": "Genera o modifica un Cliente",
+        "notFound": "No Clientes found"
+      },
+      "created": "&Egrave; stato generato un nuovo Cliente con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Cliente identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Cliente con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Cliente {{ id }}?"
+      },
+      "detail": {
+        "title": "Cliente"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf"
+    }
+  }
+}

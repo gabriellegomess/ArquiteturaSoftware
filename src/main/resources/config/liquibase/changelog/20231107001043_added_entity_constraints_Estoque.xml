@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Estoque.
+    -->
+    <changeSet id="20231107001043-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="gerente_id"
+                                 baseTableName="estoque"
+                                 constraintName="fk_estoque__gerente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gerente"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,27 @@
+{
+  "stockXpertApp": {
+    "pedido": {
+      "home": {
+        "title": "Pedidos",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Pedido",
+        "createOrEditLabel": "Создать или отредактировать Pedido",
+        "notFound": "Pedidos не найдено"
+      },
+      "created": "Новый Pedido создан с идентификатором {{ param }}",
+      "updated": "Pedido обновлен с идентификатором {{ param }}",
+      "deleted": "Pedido удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Pedido"
+      },
+      "id": "ID",
+      "dataPedido": "Data Pedido",
+      "quantidade": "Quantidade",
+      "cliente": "Cliente",
+      "produto": "Produto"
+    }
+  }
+}

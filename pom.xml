@@ -839,8 +839,8 @@
                 <spring.profiles.active>dev${profile.tls}${profile.no-liquibase}</spring.profiles.active>
                 <profile.test>testdev</profile.test>
                 <liquibase-plugin.url>jdbc:postgresql://localhost:5432/StockXpert</liquibase-plugin.url>
-                <liquibase-plugin.username>StockXpert</liquibase-plugin.username>
-                <liquibase-plugin.password/>
+                <liquibase-plugin.username>postgres</liquibase-plugin.username>
+                <liquibase-plugin.password>password</liquibase-plugin.password>
             </properties>
             <dependencies>
                 <dependency>

@@ -7,7 +7,7 @@ export const sampleWithRequiredData: IGerente = {
   nome: 'yahoo',
   cpf: 'hopelessly outvote beneath',
   salario: 18681.88,
-  dataNasc: dayjs('2023-11-05'),
+  dataNasc: dayjs('2023-11-06'),
 };
 
 export const sampleWithPartialData: IGerente = {

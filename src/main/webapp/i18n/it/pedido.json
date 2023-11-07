@@ -1,0 +1,27 @@
+{
+  "stockXpertApp": {
+    "pedido": {
+      "home": {
+        "title": "Pedidos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Pedido",
+        "createOrEditLabel": "Genera o modifica un Pedido",
+        "notFound": "No Pedidos found"
+      },
+      "created": "&Egrave; stato generato un nuovo Pedido con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Pedido identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Pedido con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Pedido {{ id }}?"
+      },
+      "detail": {
+        "title": "Pedido"
+      },
+      "id": "ID",
+      "dataPedido": "Data Pedido",
+      "quantidade": "Quantidade",
+      "cliente": "Cliente",
+      "produto": "Produto"
+    }
+  }
+}
